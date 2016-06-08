@@ -20,6 +20,9 @@ module.exports = class TypeScriptFormatter extends Beautifier
         opts.IndentSize = options.indent_size
         opts.IndentStyle = 'space'
         opts.convertTabsToSpaces = true
+        if options.brace_style == "expand"
+            opts.PlaceOpenBraceOnNewLineForFunctions = true
+            opts.PlaceOpenBraceOnNewLineForControlBlocks = true
         @verbose('typescript', text, opts)
         result = format('', text, opts)
         @verbose(result)
